@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace NAttreid\Breadcrumbs;
 
@@ -42,7 +42,7 @@ class Breadcrumb extends Control
 	 */
 	private $view = false;
 
-	public function __construct(ITranslator $translator = null)
+	public function __construct(?ITranslator $translator)
 	{
 		parent::__construct();
 		$this->translator = $translator;
@@ -52,7 +52,7 @@ class Breadcrumb extends Control
 	 * Nastavi translator
 	 * @param ITranslator $translator
 	 */
-	public function setTranslator(ITranslator $translator = null)
+	public function setTranslator(ITranslator $translator = null): void
 	{
 		$this->translator = $translator;
 	}
@@ -61,7 +61,7 @@ class Breadcrumb extends Control
 	 * Nastavi text pred navigaci
 	 * @param string $title
 	 */
-	public function setTitle(string $title)
+	public function setTitle(string $title): void
 	{
 		$this->title = $this->translator !== null ? $this->translator->translate($title) : $title;
 	}
@@ -70,7 +70,7 @@ class Breadcrumb extends Control
 	 * Nastavi oddelovac
 	 * @param string $delimiter
 	 */
-	public function setDelimiter(string $delimiter)
+	public function setDelimiter(string $delimiter): void
 	{
 		$this->delimiter = $delimiter;
 	}
@@ -78,7 +78,7 @@ class Breadcrumb extends Control
 	/**
 	 * Zobrazi i tehdy pokud ma jen jeden link
 	 */
-	public function always()
+	public function always(): void
 	{
 		$this->view = true;
 	}
@@ -108,7 +108,7 @@ class Breadcrumb extends Control
 		return $this->links[] = new Link($name, $link, $arguments);
 	}
 
-	public function render($args = null)
+	public function render(array $args = []): void
 	{
 		$template = $this->template;
 		$template->setFile(__DIR__ . '/breadcrumb.latte');

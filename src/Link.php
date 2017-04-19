@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace NAttreid\Breadcrumbs;
 
@@ -11,7 +11,7 @@ use Nette\SmartObject;
  *
  * @property-read string $name
  * @property-read string $link
- * @property-read string $arguments
+ * @property-read string[] $arguments
  * @property string $icon
  *
  * @author Attreid <attreid@gmail.com>
@@ -26,7 +26,7 @@ class Link
 	/** @var string */
 	private $link;
 
-	/** @var array */
+	/** @var string[] */
 	private $arguments;
 
 	/** @var string */
@@ -42,13 +42,13 @@ class Link
 	/**
 	 * @return string|null
 	 */
-	protected function getLink()
+	protected function getLink(): ?string
 	{
 		return $this->link;
 	}
 
 	/**
-	 * @return string
+	 * @return string[]
 	 */
 	protected function getArguments(): array
 	{
@@ -66,7 +66,7 @@ class Link
 	/**
 	 * @return string|null
 	 */
-	protected function getIcon()
+	protected function getIcon(): ?string
 	{
 		return $this->icon;
 	}
