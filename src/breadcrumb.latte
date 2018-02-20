@@ -9,14 +9,14 @@
                 {if $link->icon !== null}
                     <a
                             n:class="fa,'fa-'.$link->icon"
-                            title="{$link->name}"
+                            title="{$link->name|striptags}"
                             {if $link->link !== null}href="{plink $link->link, (expand) $link->arguments}"
                             {else}href="{plink this}"{/if}></a>
                 {else}
                     <a
                             {if $link->link !== null}href="{plink $link->link, (expand) $link->arguments}"
                             {else}href="{plink this}"{/if}>
-                        {$link->name}
+                        {$link->name|striptags}
                     </a>
                 {/if}
             </li>
